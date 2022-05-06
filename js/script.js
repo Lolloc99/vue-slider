@@ -54,7 +54,7 @@ const app = new Vue (
         },
         // Methods
         methods : {
-            prevClick: function (currentSlide) {
+            prevClick: function () {
                 if (this.currentSlide === 0) {
                     this.currentSlide = this.mainArray.length - 1; // ultima
                 } else {
@@ -62,10 +62,9 @@ const app = new Vue (
                 }
             
                 console.log('Prev', this.currentSlide);
-                // changeActive(currentSlide);
             },
 
-            nextClick: function (currentSlide) {
+            nextClick: function () {
                 // se sono all'ultima, mi posiziono sulla prima
                 if (this.currentSlide == this.mainArray.length - 1) {
                     this.currentSlide = 0; // prima
@@ -74,7 +73,10 @@ const app = new Vue (
                 }
 
                 console.log('Next', this.currentSlide);
-                // changeActive(this.currentSlide);
+            },
+
+            thumbClick: function (index) {
+                this.currentSlide = index
             }
         }
     }

@@ -33,7 +33,7 @@
 
                 <!-- Ciclo for che crea gli elementi thumbs -->
                 <div v-for="(item, index) in mainArray" class="thumb" :class="index === currentSlide ? 'active' : ''">
-                    <img :src="item.image" :alt="item.title">
+                    <img :src="item.image" :alt="item.title" @click="thumbClick(index)">
                 </div>
 
                 <!-- Freccia down -->
