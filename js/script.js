@@ -49,10 +49,33 @@ const app = new Vue (
                 },
             ],
 
+            currentSlide: 0, //posizione sulla prima slide
+            
         },
         // Methods
         methods : {
+            prevClick: function (currentSlide) {
+                if (this.currentSlide === 0) {
+                    this.currentSlide = this.mainArray.length - 1; // ultima
+                } else {
+                    this.currentSlide--; // precedente
+                }
+            
+                console.log('Prev', this.currentSlide);
+                // changeActive(currentSlide);
+            },
 
+            nextClick: function (currentSlide) {
+                // se sono all'ultima, mi posiziono sulla prima
+                if (this.currentSlide == this.mainArray.length - 1) {
+                    this.currentSlide = 0; // prima
+                } else {
+                    this.currentSlide++; // successiva
+                }
+
+                console.log('Next', this.currentSlide);
+                // changeActive(this.currentSlide);
+            }
         }
     }
 )

@@ -18,30 +18,26 @@
         <div class="container">
             <div class="items">
                 <!-- Ciclo for che crea gli elementi (non essendocene nessuno con classe "active" non se ne visualizza nessuno in pagina) -->
-                <div v-for="item in mainArray">
-                    <div class="item">
-                        <img :src="item.image" :alt="item.title">
-                        <div class="text">
-                            <h3>{{item.title}}</h3>
-                            <p>{{item.text}}</p>
-                        </div>
+                <div v-for="(item, index) in mainArray" class="item" :class="index === currentSlide ? 'active' : ''">
+                    <img :src="item.image" :alt="item.title">
+                    <div class="text">
+                        <h3>{{item.title}}</h3>
+                        <p>{{item.text}}</p>
                     </div>
                 </div>
             </div>
 
             <div class="thumbs">
                 <!-- Freccia up -->
-                <div class="prev"></div>
+                <div class="prev" @click="prevClick"></div>
 
                 <!-- Ciclo for che crea gli elementi thumbs -->
-                <div v-for="item in mainArray">
-                    <div class="thumb active">
-                        <img :src="item.image" :alt="item.title">
-                    </div> 
+                <div v-for="(item, index) in mainArray" class="thumb" :class="index === currentSlide ? 'active' : ''">
+                    <img :src="item.image" :alt="item.title">
                 </div>
-                
+
                 <!-- Freccia down -->
-                <div class="next"></div>
+                <div class="next" @click="nextClick"></div>
             </div>
        </div>
         
